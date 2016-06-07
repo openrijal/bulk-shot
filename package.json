@@ -1,0 +1,30 @@
+{
+  "name": "bulk-shot",
+  "version": "1.0.0",
+  "description": "a simple utility to get PhantomJS and SlimerJS screenshots providing a list of urls in a file",
+  "dependencies": {
+    "phantom": "^2.1.2",
+    "slimerjs": "^0.9.6"
+  },
+  "devDependencies": {      
+    "phantom": "^2.1.2",
+    "slimerjs": "^0.9.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crackjack/bulk-shot.git"
+  },
+  "keywords": [
+    "phantomjs",
+    "slimerjs",
+    "screenshot",
+    "headless browser",
+    "responsive screenshot",
+  ],
+  "author": "Nitesh Rijal <rijal.it@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crackjack/bulk-shot/issues"
+  },
+  "homepage": "https://github.com/crackjack/bulk-shot#readme"
+}
