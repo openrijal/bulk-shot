@@ -46,11 +46,22 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
                 height: 600
             };
             page.settings.userAgent = "Phantom.js bot";
+
             return page.open(url, function(status) {
                 var file;
                 file = getFilename();
                 if (status === "success") {
                     return window.setTimeout((function() {
+			 // handle cases when the background of the page is transparent or rgba(0,0,0,0)
+			 page.evaluate(function() {
+			    if ('transparent' === document.defaultView.getComputedStyle(document.body).getPropertyValue('background-color')) {
+				    document.body.style.backgroundColor = '#fff';
+			    }
+			    if ('rgba(0, 0, 0, 0)' === document.defaultView.getComputedStyle(document.body).getPropertyValue('background-color')) {
+				    document.body.style.backgroundColor = '#fff';
+			    }
+			});
+
                         page.render(file);
                         return next(status, url, file);
                     }), 10000);
