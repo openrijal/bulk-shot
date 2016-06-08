@@ -19,7 +19,7 @@
     "slimerjs",
     "screenshot",
     "headless browser",
-    "responsive screenshot",
+    "responsive screenshot"
   ],
   "author": "Nitesh Rijal <rijal.it@gmail.com>",
   "license": "MIT",
