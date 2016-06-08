@@ -47,6 +47,18 @@ RenderUrlsToFile = function(urls, callbackPerUrl, callbackFinal) {
             };
             page.settings.userAgent = "Phantom.js bot";
 
+            page.onError = function(msg, trace) {
+			  var msgStack = ['PHANTOM ERROR: ' + msg];
+			  if (trace && trace.length) {
+				   msgStack.push('TRACE:');
+				   trace.forEach(function(t) {
+				     msgStack.push(' -> ' + (t.file || t.sourceURL) + ': ' + t.line + (t.function ? ' (in function ' + t.function +')' : ''));
+				   });
+			  }
+			  // uncomment to log into the console 
+			  // console.error(msgStack.join('\n'));
+			};
+
             return page.open(url, function(status) {
                 var file;
                 file = getFilename();
